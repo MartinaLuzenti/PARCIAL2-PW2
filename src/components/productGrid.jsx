@@ -1,9 +1,20 @@
 
-import { Container, Row, Col, Card, Button, Form, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import { useStore } from '../stores/useStore';
 import { useEffect } from 'react';
 import ProductCard from './ProductCard';
+
+import { useAuthStore } from '../stores/authStore';
+import { useNavigate } from 'react-router-dom';
 function ProductGrid() {
+
+    const navigate = useNavigate();
+    const isAuthenticated = useAuthStore(state => state.isAuthenticated());
+
+    if (!isAuthenticated) {
+        navigate('/login');
+        }
+
     const {
         filteredProducts,
         productsLoading,
@@ -109,6 +120,3 @@ mb-4">
     );
 }
 export default ProductGrid;
-        
-       
-   

@@ -1,9 +1,22 @@
- function Dashboard(){
-    return(
+import { useAuthStore } from '../stores/authStore';
+import { useNavigate } from 'react-router-dom';
+
+function Dashboard() {
+
+    const navigate = useNavigate();
+    const isAuthenticated = useAuthStore(state => state.isAuthenticated());
+
+    if (!isAuthenticated) {
+        navigate('/login');
+    }
+
+
+
+    return (
         <>
-        <AppNavbar/>
-        Esta es la pantalla principal
+            Aca van a estar los productos
         </>
     );
- }
- export default Dashboard;
+
+}
+export default Dashboard;

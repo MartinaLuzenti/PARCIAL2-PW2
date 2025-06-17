@@ -10,7 +10,7 @@ function LoginForm() {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
-        
+
     });
     const [validated, setValidated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
@@ -28,17 +28,17 @@ function LoginForm() {
             e.stopPropagation();
         } else {
             const res = await login(formData.username, formData.password);
-            if(res.success) {
+            if (res.success) {
                 console.log('Formulario enviado:', formData);
                 setShowAlert(false);
                 setFormData({ username: '', password: '' });
                 setValidated(false);
                 navigate('/principal');
-            }           
-              else {
+            }
+            else {
                 setShowAlert(true);
-              }          
-           
+            }
+
         }
         setValidated(true);
     };
@@ -54,42 +54,45 @@ function LoginForm() {
                 Usuario o constraseña invalido
             </Alert>
         )}
-        
+        <Alert variant="info">
+            Para ver nuestros productos tenes que estar logueado
+        </Alert>
+
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row>
-               
-                    <Form.Group className="mb-3">
-                        <Form.Label>Usuario</Form.Label>
-                        <Form.Control
-                            required
-                            type="text"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                           
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            Por favor ingresa su usuario.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-               
-                    <Form.Group className="mb-3">
-                        <Form.Label>Contraseña</Form.Label>
-                        <Form.Control
-                            required
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            Por favor ingrese su contraseña.
-                        </Form.Control.Feedback>
-                    </Form.Group>
-               
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Usuario</Form.Label>
+                    <Form.Control
+                        required
+                        type="text"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleChange}
+
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Por favor ingresa su usuario.
+                    </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Control
+                        required
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Por favor ingrese su contraseña.
+                    </Form.Control.Feedback>
+                </Form.Group>
+
             </Row>
-            
+
             <Button variant="primary" type="submit" size="lg">
                 Ingresar
             </Button>
