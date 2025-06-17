@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../stores/authStore';
 
 function LoginForm() {
+    const { login } = useAuthStore();
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
@@ -18,38 +21,40 @@ function LoginForm() {
             [name]: value
         }));
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         const form = e.currentTarget;
         e.preventDefault();
         if (form.checkValidity() === false) {
             e.stopPropagation();
         } else {
+            const res = await login(formData.username, formData.password);
+            if(res.success) {
+                console.log('Formulario enviado:', formData);
+                setShowAlert(false);
+                setFormData({ username: '', password: '' });
+                setValidated(false);
+                navigate('/principal');
+            }           
+              else {
+                setShowAlert(true);
+              }          
            
-            console.log('Formulario enviado:', formData);
-            navigate('/principal');
-            setShowAlert(true);
-            setFormData({ username: '',password: '' });
-            setValidated(false);
         }
         setValidated(true);
     };
 
 
-
-
-
-
-
     return (<>
         {showAlert && (
             <Alert
-                variant="success"
+                variant="error"
                 dismissible
                 onClose={() => setShowAlert(false)}
             >
-                ¡Logueado correctamente!
+                Usuario o constraseña invalido
             </Alert>
         )}
+        
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row>
                
@@ -64,12 +69,12 @@ function LoginForm() {
                            
                         />
                         <Form.Control.Feedback type="invalid">
-                            Por favor ingresa su Usuario.
+                            Por favor ingresa su usuario.
                         </Form.Control.Feedback>
                     </Form.Group>
                
                     <Form.Group className="mb-3">
-                        <Form.Label>Contrasenia</Form.Label>
+                        <Form.Label>Contraseña</Form.Label>
                         <Form.Control
                             required
                             type="password"
@@ -79,7 +84,7 @@ function LoginForm() {
                             
                         />
                         <Form.Control.Feedback type="invalid">
-                            Por favor ingrese su contrasenia.
+                            Por favor ingrese su contraseña.
                         </Form.Control.Feedback>
                     </Form.Group>
                
