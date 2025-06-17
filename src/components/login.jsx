@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -10,10 +12,10 @@ function LoginForm() {
     const [validated, setValidated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const handleChange = (e) => {
-        const { username, value } = e.target;
+        const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
-            [username]: value
+            [name]: value
         }));
     };
     const handleSubmit = (e) => {
@@ -24,8 +26,9 @@ function LoginForm() {
         } else {
            
             console.log('Formulario enviado:', formData);
+            navigate('/principal');
             setShowAlert(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ username: '',password: '' });
             setValidated(false);
         }
         setValidated(true);
@@ -55,7 +58,7 @@ function LoginForm() {
                         <Form.Control
                             required
                             type="text"
-                            name="name"
+                            name="username"
                             value={formData.username}
                             onChange={handleChange}
                            
