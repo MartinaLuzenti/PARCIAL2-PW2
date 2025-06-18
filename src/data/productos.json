@@ -1,0 +1,72 @@
+[
+    {
+      "nombre": "Bont Vaypor Inline Speed Skate",
+      "precio": 33500,
+      "stock": 5,
+      "descripcion": "Patín de velocidad profesional de carbono, 6 ruedas grandes para alta performance.",
+      "imagen": "https://img.ltwebstatic.com/images3_spmp/2023/12/13/6b/1702476031ab561d542f763fdf2992baf417fa3f72_thumbnail_720x.jpg"
+    },
+    {
+      "nombre": "Recto Storm Inline Speed Skate",
+      "precio": 33500,
+      "stock": 7,
+      "descripcion": "Patín de carbono 5 capas, chasis de aluminio ajustable, 6 ruedas PU de alta velocidad.",
+      "imagen": "https://m.media-amazon.com/images/I/617GFOj0YFL.jpg"
+    },
+    {
+      "nombre": "Flashing 6‑Wheel Adjustable Skates",
+      "precio": 60,
+      "stock": 20,
+      "descripcion": "Patines ajustables con ruedas LED, 6 ruedas, ideales para recreación juvenil.",
+      "imagen": "https://cdn.shopify.com/s/files/1/0048/6242/files/inline-speed-skate_f0096b06-1109-4132-90f1-dd834e48f443_large.png?v=1595050354"
+    },
+    {
+      "nombre": "Transformable 6‑Wheel Roller Sneakers",
+      "precio": 45,
+      "stock": 15,
+      "descripcion": "Zapatillas convertible en patines con 6 ruedas desmontables.",
+      "imagen": "https://sc04.alicdn.com/kf/HTB1wwBxerus3KVjSZKbq6xqkFXaJ.jpg"
+    },
+    {
+      "nombre": "Slalom 6‑Wheel Inline Skates",
+      "precio": 50,
+      "stock": 12,
+      "descripcion": "Patín para slalom con 6 ruedas alineadas, ideal para trucos y velocidad.",
+      "imagen": "https://impalarollerskates.com/cdn/shop/files/IMPINLINE1_BARBBY_01.jpg?v=1684255856"
+    },
+    {
+      "nombre": "6‑Wheel PU Aluminum Frame Skates",
+      "precio": 70,
+      "stock": 8,
+      "descripcion": "Patines con chasis de aluminio y ruedas de PU, conducción estable y ligera.",
+      "imagen": "https://i.ytimg.com/vi/6Q_5ZE0lSSQ/maxresdefault.jpg"
+    },
+    {
+      "nombre": "Urban 6‑Wheel Inline Cruiser",
+      "precio": 55,
+      "stock": 10,
+      "descripcion": "Patín urbano con 6 ruedas de tamaño medio, confort para paseos largos.",
+      "imagen": "https://powerslide.com/cdn/shop/products/PR10243BI25009_908431_39294_Next_Mustard_125_SZ4.jpg?format=webp&v=1700584494&width=450"
+    },
+    {
+      "nombre": "Sport 6‑Wheel Adjustable Skate",
+      "precio": 65,
+      "stock": 9,
+      "descripcion": "Patín deportivo ajustable en tallas, ideal para adolescentes y adultos.",
+      "imagen": "https://img.ltwebstatic.com/images3_spmp/2023/12/13/6b/1702476031ab561d542f763fdf2992baf417fa3f72_thumbnail_720x.jpg"
+    },
+    {
+      "nombre": "Kids 6‑Wheel Light‑Up Skate",
+      "precio": 50,
+      "stock": 25,
+      "descripcion": "Patín infantil con 6 ruedas que se iluminan al rodar.",
+      "imagen": "https://img.ltwebstatic.com/images3_spmp/2023/12/13/6b/1702476031ab561d542f763fdf2992baf417fa3f72_thumbnail_720x.jpg"
+    },
+    {
+      "nombre": "Aluminum Inline 6‑Wheel Speed Skate",
+      "precio": 80,
+      "stock": 6,
+      "descripcion": "Patín de velocidad con chasis de aluminio y ruedas de 90 mm, para entrenamiento intensivo.",
+      "imagen": "https://sc04.alicdn.com/kf/HTB1wwBxerus3KVjSZKbq6xqkFXaJ.jpg"
+    }
+  ]

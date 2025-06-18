@@ -1,23 +1,53 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { useAuthStore } from '../stores/authStore';
+import { useNavigate } from 'react-router-dom';
 
 function AppNavbar() {
+    const isAuthenticated = useAuthStore(state => state.isAuthenticated());
+    const logout = useAuthStore(state => state.logout);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar bg="info" expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">MartinaWeb</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Brand as={NavLink} to="/" className="fw-bold">
+                    RollerStore
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbar-nav" />
+                <Navbar.Collapse id="navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Usuarios</Nav.Link>
-                        <Nav.Link href="#link">Productos</Nav.Link>
-
+                        <Nav.Link as={NavLink} to="/productos">
+                            Productos
+                        </Nav.Link>
+                    </Nav>
+                    <Nav className="ms-auto">
+                        {isAuthenticated ? (
+                            <Button
+                                variant="outline-danger"
+                                size="sm"
+                                onClick={handleLogout}
+                            >
+                                Cerrar Sesión
+                            </Button>
+                        ) : (
+                            <NavLink to="/login">
+                                <Button variant="primary" size="sm">
+                                    Iniciar Sesión
+                                </Button>
+                            </NavLink>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 }
+
 export default AppNavbar;
+

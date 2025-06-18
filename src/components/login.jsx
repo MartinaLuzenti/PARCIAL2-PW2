@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button, Alert, Row, Col } from 'react-bootstrap';
+import { Form, Button, Alert, Row, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
 
@@ -33,7 +33,7 @@ function LoginForm() {
                 setShowAlert(false);
                 setFormData({ username: '', password: '' });
                 setValidated(false);
-                navigate('/principal');
+                navigate('/productos');
             }
             else {
                 setShowAlert(true);
@@ -47,16 +47,17 @@ function LoginForm() {
     return (<>
         {showAlert && (
             <Alert
-                variant="error"
+                variant="danger"
                 dismissible
                 onClose={() => setShowAlert(false)}
             >
-                Usuario o constraseña invalido
+                Usuario o contraseña invalido
             </Alert>
         )}
         <Alert variant="info">
             Para ver nuestros productos tenes que estar logueado
         </Alert>
+        <Container>
 
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Row>
@@ -97,6 +98,7 @@ function LoginForm() {
                 Ingresar
             </Button>
         </Form>
+    </Container>
     </>)
 };
 export default LoginForm;
