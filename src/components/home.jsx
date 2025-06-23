@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { BsStarFill, BsPalette, BsBoxSeam, BsLightning } from 'react-icons/bs';
 
+import styles from './Home.module.css'; // Import your CSS module
+
 function Home() {
   const beneficios = [
     {
@@ -21,32 +23,23 @@ function Home() {
     }
   ];
 
-  const categorias = [
-    { nombre: 'Patines Clásicos', emoji: '🛼', productos: '100+' },
-    { nombre: 'Accesorios', emoji: '🧰', productos: '50+' },
-    { nombre: 'Indumentaria', emoji: '🧢', productos: '30+' },
-    { nombre: 'Promos', emoji: '🎁', productos: '20+' }
-  ];
+  
 
   return (
     <>
       {/* Hero */}
-      <div className="bg-pink text-white py-5" style={{ backgroundColor: '#ff69b4' }}>
+      {/* <div className="bg-pink text-white py-5" style={{ backgroundColor: '#ff69b4' }}> */}
+      <div className={styles.container}>
         <Container>
           <Row className="align-items-center">
             <Col md={6}>
-              <h1 className="display-4 fw-bold">¡Patiná con estilo!</h1>
-              <p className="lead mt-3">
+              <h1 className={styles.title}>¡Patiná con estilo!</h1>
+              <p className={styles.description}>
                 Descubrí nuestros patines de cuatro ruedas, hechos para destacar.
               </p>
               <div className="d-flex gap-3">
                 <NavLink to="/productos">
-                  <Button variant="light" size="lg">Ver Productos</Button>
-                </NavLink>
-                <NavLink to="/personalizar">
-                  <Button variant="outline-light" size="lg">
-                    Arma tu patin! <BsPalette className="ms-2" />
-                  </Button>
+                  <Button className={styles.btnPrimary}>Ver Productos</Button>
                 </NavLink>
               </div>
             </Col>
@@ -61,17 +54,16 @@ function Home() {
         </Container>
       </div>
 
-      {/* Beneficios */}
-      <Container className="my-5">
-        <h2 className="text-center mb-4">¿Por qué RollerStore?</h2>
+     <Container className="my-5">
+        <h2 className={styles.titleContainer}>¿Por qué RollerStore?</h2>
         <Row className="g-4">
           {beneficios.map((b, i) => (
             <Col md={4} key={i}>
-              <Card className="text-center h-100 border-0 shadow-sm">
+              <Card className={styles.cardHome}>
                 <Card.Body>
-                  <div className="text-pink mb-3" style={{ color: '#ff69b4' }}>{b.icon}</div>
+                  <div className={styles.textPink}>{b.icon}</div>
                   <Card.Title>{b.titulo}</Card.Title>
-                  <Card.Text className="text-muted">{b.texto}</Card.Text>
+                  <Card.Text className={styles.cardText}>{b.texto}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -79,52 +71,22 @@ function Home() {
         </Row>
       </Container>
 
-      {/* Categorías */}
-      <Container className="my-5">
-        <h2 className="text-center mb-4">Explorá nuestras categorías</h2>
-        <Row className="g-4">
-          {categorias.map((cat, index) => (
-            <Col sm={6} md={3} key={index}>
-              <Card className="text-center h-100 border-0 shadow-sm category-card">
-                <Card.Body>
-                  <div style={{ fontSize: '3rem' }} className="mb-2">{cat.emoji}</div>
-                  <Card.Title>{cat.nombre}</Card.Title>
-                  <Badge bg="secondary" className="mb-3">{cat.productos}</Badge>
-                  <NavLink to="/productos">
-                    <Button variant="outline-secondary" size="sm">Ver más</Button>
-                  </NavLink>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-
-      {/* CTA final */}
-      <div className="text-center py-5 bg-light">
+      <div className={styles.startWithUs}>
         <Container>
-          <h3 className="mb-3">¿Lista/o para patinar?</h3>
-          <p className="text-muted mb-4">
+          <h3 className={styles.startWithUsTile}>¿Lista/o para patinar?</h3>
+          <p className={styles.startWithUsDescription}>
             ¡Unite a nuestra comunidad y encontrá el par perfecto!
           </p>
           <NavLink to="/productos">
-            <Button variant="dark" size="lg">Empezar ahora</Button>
+            <Button className={styles.btnPrimary} size="lg">Empezar ahora</Button>
           </NavLink>
         </Container>
       </div>
-
-      <style jsx>{`
-        .category-card {
-          transition: transform 0.2s ease-in-out;
-          cursor: pointer;
-        }
-        .category-card:hover {
-          transform: translateY(-5px);
-        }
-      `}</style>
     </>
   );
 }
 
 export default Home;
+
+
 

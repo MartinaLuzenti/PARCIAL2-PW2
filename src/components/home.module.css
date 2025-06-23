@@ -1,0 +1,88 @@
+ .container {
+    background-color: #ff69b4;
+    color: white;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.title {
+    line-height: 1.2;
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 700 !important;
+}   
+
+.description {
+   font-size: 1.25rem;
+    font-weight: 300;
+    margin-top: 1rem !important;
+}
+
+.btnPrimary {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  outline: none;
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus {
+  background-color: #ff1493;
+  color: #fff;
+}
+
+.btnPrimary:active {
+  background-color: #e75480;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(255,105,180,.25);
+}
+
+.titleContainer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cardHome {
+  text-align: center;
+  height: 100%;
+  border: none;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.cardText {
+    --bs-text-opacity: 1;
+    color: #212529bf !important;
+}
+
+.textPink {
+  color: #ff69b4;
+  margin-bottom: 1rem;
+}
+ .category-card {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.startWithUs {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: #f8f9fa;
+}
+
+.startWithUsTile {
+    margin-bottom: 1rem
+}
+
+.startWithUsDescription {
+   --bs-text-opacity: 1;
+    margin-bottom: 1.5rem
+}
