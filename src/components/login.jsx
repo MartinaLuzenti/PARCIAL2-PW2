@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Form, Button, Alert, Row, Container } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { useAuthStore } from '../stores/authStore';
+import styles from './login.module.css';
 
 function LoginForm() {
     const { login } = useAuthStore();
@@ -94,11 +95,17 @@ function LoginForm() {
 
             </Row>
 
-            <Button variant="primary" type="submit" size="lg">
-                Ingresar
-            </Button>
+            <div className="d-flex justify-content-center gap-2">
+                 <NavLink to="/">
+                    <Button  className={styles.btnSecondary} type="button" size="lg">Volver</Button>
+                </NavLink>
+                <Button className={styles.btnPrimary} type="submit" size="lg">
+                    Ingresar
+                </Button>
+            </div>
         </Form>
     </Container>
     </>)
 };
 export default LoginForm;
+
