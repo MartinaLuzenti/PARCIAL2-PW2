@@ -20,6 +20,9 @@ export const useAuthStore = create(
           if (response.ok) {
             const user = await response.json();
             set({ user, loading: false });
+            if (user.token) {
+              localStorage.setItem('token', user.token); // Guarda el token en el local storage
+            }
             return { success: true };
           } else {
             set({ error: "Credenciales inválidas", loading: false });
@@ -45,3 +48,4 @@ export const useAuthStore = create(
     }
   )
 );
+
